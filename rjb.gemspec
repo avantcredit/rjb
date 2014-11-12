@@ -1,3 +1,4 @@
+require 'rake'
 require 'fileutils'
 
 def read_version
