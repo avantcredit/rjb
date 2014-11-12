@@ -1,0 +1,166 @@
+have_header: checking for jni.h... -------------------- yes
+
+"xcrun clang -o conftest -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin13 -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0 -I/Users/nathankeyes/Documents/workspace/avant/rjb/ext -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include" -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include/darwin" -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -g -Os -pipe -DHAVE_GCC_SYNC_BUILTINS -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include" -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include/darwin" conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib -L. -L/usr/local/lib   -arch x86_64 -arch i386   -lruby.2.0.0  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"xcrun clang -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin13 -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0 -I/Users/nathankeyes/Documents/workspace/avant/rjb/ext -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include" -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include/darwin" -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -g -Os -pipe -DHAVE_GCC_SYNC_BUILTINS -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include" -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include/darwin"  -arch x86_64 -arch i386  -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <jni.h>
+/* end */
+
+--------------------
+
+have_func: checking for locale_charset() in iconv.h... -------------------- no
+
+"xcrun clang -o conftest -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin13 -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0 -I/Users/nathankeyes/Documents/workspace/avant/rjb/ext -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include" -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include/darwin" -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -g -Os -pipe -DHAVE_GCC_SYNC_BUILTINS -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include" -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include/darwin" conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib -L. -L/usr/local/lib   -arch x86_64 -arch i386   -lruby.2.0.0  -lpthread -ldl -lobjc "
+conftest.c:7:57: error: use of undeclared identifier 'locale_charset'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))locale_charset; return 0; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int t(void) { void ((*volatile p)()); p = (void ((*)()))locale_charset; return 0; }
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+/* end */
+
+"xcrun clang -o conftest -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin13 -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0 -I/Users/nathankeyes/Documents/workspace/avant/rjb/ext -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include" -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include/darwin" -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -g -Os -pipe -DHAVE_GCC_SYNC_BUILTINS -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include" -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include/darwin" conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib -L. -L/usr/local/lib   -arch x86_64 -arch i386   -lruby.2.0.0  -lpthread -ldl -lobjc "
+conftest.c:7:15: warning: implicit declaration of function 'locale_charset' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { locale_charset(); return 0; }
+              ^
+1 warning generated.
+Undefined symbols for architecture x86_64:
+  "_locale_charset", referenced from:
+      _t in conftest-92e574.o
+ld: symbol(s) not found for architecture x86_64
+conftest.c:7:15: warning: implicit declaration of function 'locale_charset' is invalid in C99 [-Wimplicit-function-declaration]
+int t(void) { locale_charset(); return 0; }
+              ^
+1 warning generated.
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <iconv.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int t(void) { locale_charset(); return 0; }
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+/* end */
+
+--------------------
+
+have_func: checking for nl_langinfo() in langinfo.h... -------------------- yes
+
+"xcrun clang -o conftest -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin13 -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0 -I/Users/nathankeyes/Documents/workspace/avant/rjb/ext -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include" -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include/darwin" -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -g -Os -pipe -DHAVE_GCC_SYNC_BUILTINS -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include" -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include/darwin" conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib -L. -L/usr/local/lib   -arch x86_64 -arch i386   -lruby.2.0.0  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <langinfo.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int t(void) { void ((*volatile p)()); p = (void ((*)()))nl_langinfo; return 0; }
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+/* end */
+
+--------------------
+
+have_func: checking for setlocale() in locale.h... -------------------- yes
+
+"xcrun clang -o conftest -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin13 -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0 -I/Users/nathankeyes/Documents/workspace/avant/rjb/ext -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include" -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include/darwin" -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -g -Os -pipe -DHAVE_GCC_SYNC_BUILTINS -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include" -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include/darwin" conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib -L. -L/usr/local/lib   -arch x86_64 -arch i386   -lruby.2.0.0  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <locale.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int t(void) { void ((*volatile p)()); p = (void ((*)()))setlocale; return 0; }
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+/* end */
+
+--------------------
+
+have_func: checking for getenv()... -------------------- yes
+
+"xcrun clang -o conftest -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin13 -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0 -I/Users/nathankeyes/Documents/workspace/avant/rjb/ext -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include" -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include/darwin" -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -g -Os -pipe -DHAVE_GCC_SYNC_BUILTINS -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include" -I"/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home/include/darwin" conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib -L. -L/usr/local/lib   -arch x86_64 -arch i386   -lruby.2.0.0  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int t(void) { void ((*volatile p)()); p = (void ((*)()))getenv; return 0; }
+ 6: int main(int argc, char **argv)
+ 7: {
+ 8:   if (argc > 1000000) {
+ 9:     printf("%p", &t);
+10:   }
+11: 
+12:   return 0;
+13: }
+/* end */
+
+--------------------
+
+extconf.h is:
+/* begin */
+1: #ifndef EXTCONF_H
+2: #define EXTCONF_H
+3: #define HAVE_JNI_H 1
+4: #define HAVE_NL_LANGINFO 1
+5: #define HAVE_SETLOCALE 1
+6: #define HAVE_GETENV 1
+7: #define RJB_RUBY_VERSION_CODE 200
+8: #endif
+/* end */
+
