@@ -36,6 +36,7 @@ unless javahome.nil?
   if javahome[0] == ?" && javahome[-1] == ?"
     javahome = javahome[1..-2]
   end
+  puts "JAVA_HOME: #{javahome}"
   raise "JAVA_HOME: '#{javahome}' is not directory." unless File.directory?(javahome)
   pt = Path.new
   inc = pt.include(javahome, 'include')
